@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 半亩方塘">
+    <meta name="keywords" content="Java-注解, 半亩方塘">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 半亩方塘</title>
+    <title>Java-注解 | 半亩方塘</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">friends</h1>
+                    <h1 class="description center-align post-title">Java-注解</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,21 +447,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-21
+                    2021-10-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-21
+                    2021-10-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    460
                 </div>
                 
 
@@ -487,7 +491,76 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Java注解"><a href="#Java注解" class="headerlink" title="Java注解"></a>Java注解</h1><h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1 基本语法"></a>1 基本语法</h2><h3 id="1-1-定义一个注解"><a href="#1-1-定义一个注解" class="headerlink" title="1.1 定义一个注解"></a>1.1 定义一个注解</h3><p>注解的定义与接口的定义类似，也会在编译期被编译为class字节码文件。</p>
+<p>一个注解例子如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Inherited</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">UseCase</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">description</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">"no description"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>@Retention</code>、<code>@Target</code>作为元注解，用来标识该<code>useCase</code>用在什么地方，或者在哪个级别可用。</p>
+<h3 id="1-2-元注解"><a href="#1-2-元注解" class="headerlink" title="1.2 元注解"></a>1.2 元注解</h3><p>Java5.0的时候引入了四种元注解@Target、@Retention、@Inherited、。</p>
+<ul>
+<li>**@Target:**表示该注解可以用在什么地方。<ul>
+<li>CONSTRUCTOR：构造器</li>
+<li>FIELD：域</li>
+<li>LOCAL_VARIABLE：局部变量</li>
+<li>METHOD：方法声明</li>
+<li>PACKAGE：包声明</li>
+<li>PARAMETER：参数声明</li>
+<li>TYPE：类、接口</li>
+</ul>
+</li>
+<li><strong>@Retention</strong>:表示需要在什么样的级别保存该注解信息<ul>
+<li>SOURCE：在源代码级别，将会被编译器丢弃</li>
+<li>CLASS：在字节码文件中可用，会被虚拟机丢弃</li>
+<li>RUNTIME：VM在运行时也会保留该注解，可以通过反射机制读取注解信息</li>
+</ul>
+</li>
+<li><strong>@Inherited</strong>：允许子类继承父类中的注解，只在注解对类使用时生效，子类中的方法（无论是否重写）或者属性都可以继承父类的注解</li>
+<li><strong>@Documented</strong>：将此注解保存在Javadoc中</li>
+</ul>
+<p>java8新增了两个元注解，分别是@Native与@Repeatable。@Native注解不常使用，主要用于注解成员变量表示其可以被本地代码引用。而@Repeatable可用于对同一注解多次使用时。在Java8.0之前，对同一注解的多次使用做法如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Roles</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Role</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">roles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Role</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">roleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RoleTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Roles</span><span class="token punctuation">(</span>roles <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token annotation punctuation">@Role</span><span class="token punctuation">(</span>roleName <span class="token operator">=</span> <span class="token string">"role1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token annotation punctuation">@Role</span><span class="token punctuation">(</span>roleName <span class="token operator">=</span> <span class="token string">"role2"</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">doString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"java"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用@Repeatable之后：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Roles</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Role</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Repeatable</span><span class="token punctuation">(</span><span class="token class-name">Roles</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Role</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">roleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RoleTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Role</span><span class="token punctuation">(</span>roleName <span class="token operator">=</span> <span class="token string">"role1"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Role</span><span class="token punctuation">(</span>roleName <span class="token operator">=</span> <span class="token string">"role2"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">doString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"java"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
                 
             </div>
             <hr/>
@@ -513,7 +586,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zhoujiahao123.github.io/friends/index.html">https://zhoujiahao123.github.io/friends/index.html</a>
+                    <a href="https://zhoujiahao123.github.io/2021/10/25/java-zhu-jie/">https://zhoujiahao123.github.io/2021/10/25/java-zhu-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,7 +623,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -723,24 +800,24 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2021/10/25/java-zhu-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Java-注解">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Java-注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            注解在Java5.0版本引入，主要用于将元数据保存在Java源代码中，不再需要保存在外部文档中。这使得代码更加简洁，且便于维护。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
                             </span>
                         <span class="publish-author">
                             
@@ -752,28 +829,36 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2021/10/21/shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="树">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            树作为一种常见的数据结构，在很多场景下都有使用
                         
                     </div>
                     <div class="publish-info">
@@ -782,13 +867,28 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jacob
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91/">
+                        <span class="chip bg-color">树</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
