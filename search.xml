@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>“bugList”</title>
+      <link href="/2021/11/12/buglist/"/>
+      <url>/2021/11/12/buglist/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error"><a href="#1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error" class="headerlink" title="1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error"></a>1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error</h3><pre class="line-numbers language-none"><code class="language-none"># 解决方法，依次输入以下命令 1. redis-cli.exe  2. shutdown  3. exit  4. redis-server.exe redis.windows.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java-注解</title>
       <link href="/2021/10/25/java-zhu-jie/"/>
       <url>/2021/10/25/java-zhu-jie/</url>
