@@ -4,11 +4,24 @@
   
     
     <entry>
+      <title>git</title>
+      <link href="/2021/11/15/git/"/>
+      <url>/2021/11/15/git/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-none"><code class="language-none">git init &#x2F;&#x2F;创建一个空的gitgit add .   &#x2F;&#x2F;添加所有的文件到git  git commit -m &quot;名称&quot;       &#x2F;&#x2F;提交当前的gitgit status   &#x2F;&#x2F;查看git的状态git checkout   &#x2F;&#x2F;查看有哪些文件被更改了，显示被更改的文件的路径git checkout    文件路径     &#x2F;&#x2F;使更改的文件还原(仅仅适用于那些没有被add的文件)git diff    &#x2F;&#x2F;查看所有的文件的更改详细情况git diff     文件名称         &#x2F;&#x2F;查看当前文件的详细的更改情况git reset HEAD  文件路径      &#x2F;&#x2F;可以还原已经被add的更改的文件git log     &#x2F;&#x2F;查看commit的详细信息git branch     &#x2F;&#x2F;查看本地分支情况git branch -r   &#x2F;&#x2F;查看远程分支情况git branch develop      &#x2F;&#x2F;创建一个名为 develop      的分支git push origin develop:develop2&#x2F;&#x2F;将远程分支改名为develop2git checkout develop            &#x2F;&#x2F;切换到 develop      分支git checkout -b develop        &#x2F;&#x2F;将上面两个合二为一git push origin develop   &#x2F;&#x2F;将分支上传至远程仓库git merge a       &#x2F;&#x2F;在master中使用可以合并a分支，该方法比较粗鲁，他只是腾出一块空间让a中的代码全部放进去，这种做法你可以知道哪个代码来自哪里git rebase a      &#x2F;&#x2F;在master中使用可以合并a分支   该方法较为柔和，他将会按照写代码的时间来排代码，会让代码看起来更有逻辑性，但不容易分辨代码来自哪里git branch -d  a    &#x2F;&#x2F;删除a这个分支，但是当a 的代码没有合并到master的时候这个是无效的。需要使用下面那个强制删除git branch -D a   &#x2F;&#x2F;强制删除a分支git push origin :develop   &#x2F;&#x2F;删除远程分支git tag v1.0     &#x2F;&#x2F;在当前代码状态下新建一个名为v1.0的标签如何将本地仓库和github的仓库相互关联:    git remote add origin 地址.git       &#x2F;&#x2F;其中origin是仓库的名称，可以任意取   使用HTTPS协议上传git remote   &#x2F;&#x2F;获取当前项目有哪些远程的仓库git remote add origin git@github.com:youName&#x2F;youRepo.git    &#x2F;&#x2F;使用ssh协议上传git remote remove origin   &#x2F;&#x2F;删除远程仓库git checkout -b v1.0 origin&#x2F;mastergit push origin HEAD -u<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>“bugList”</title>
       <link href="/2021/11/12/buglist/"/>
       <url>/2021/11/12/buglist/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error"><a href="#1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error" class="headerlink" title="1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error"></a>1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error</h3><pre class="line-numbers language-none"><code class="language-none"># 解决方法，依次输入以下命令 1. redis-cli.exe  2. shutdown  3. exit  4. redis-server.exe redis.windows.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error"><a href="#1-Creating-Server-TCP-listening-socket-127-0-0-1-6379-bind-No-error" class="headerlink" title="1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error"></a>1 Creating Server TCP listening socket 127.0.0.1:6379: bind: No error</h3><pre class="line-numbers language-none"><code class="language-none"># 解决方法，依次输入以下命令 1. redis-cli.exe  2. shutdown  3. exit  4. redis-server.exe redis.windows.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="2-安装logstash"><a href="#2-安装logstash" class="headerlink" title="2 安装logstash"></a>2 安装logstash</h3><pre class="line-numbers language-none"><code class="language-none">logstash -f logstash.conf &#x2F;&#x2F;失败利用下列命令检查配置文件是否有错误logstash -f logstash.conf -f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       
