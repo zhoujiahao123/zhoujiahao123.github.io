@@ -450,21 +450,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-15
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    606
+                    754
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -487,12 +487,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-none"><code class="language-none">git init &#x2F;&#x2F;创建一个空的git
+                <h2 id="1-常用的命令"><a href="#1-常用的命令" class="headerlink" title="1 常用的命令"></a>1 常用的命令</h2><pre class="line-numbers language-none"><code class="language-none">git init &#x2F;&#x2F;创建一个空的git
 git add .   &#x2F;&#x2F;添加所有的文件到git  
 git commit -m &quot;名称&quot;       &#x2F;&#x2F;提交当前的git
 git status   &#x2F;&#x2F;查看git的状态
 git checkout   &#x2F;&#x2F;查看有哪些文件被更改了，显示被更改的文件的路径
-git checkout    文件路径     &#x2F;&#x2F;使更改的文件还原(仅仅适用于那些没有被add的文件)
+git checkout    文件路径     &#x2F;&#x2F;丢弃该文件工作区的内容，注意是工作区。
 git diff    &#x2F;&#x2F;查看所有的文件的更改详细情况
 git diff     文件名称         &#x2F;&#x2F;查看当前文件的详细的更改情况
 git reset HEAD  文件路径      &#x2F;&#x2F;可以还原已经被add的更改的文件
@@ -516,6 +516,43 @@ git remote add origin git@github.com:youName&#x2F;youRepo.git    &#x2F;&#x2F;使
 git remote remove origin   &#x2F;&#x2F;删除远程仓库
 git checkout -b v1.0 origin&#x2F;master
 git push origin HEAD -u<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-git工作流程"><a href="#2-git工作流程" class="headerlink" title="2  git工作流程"></a>2  git工作流程</h2><p><img src="C:\Users\Jacob\Desktop\工作\typora图片\git流程.png"></p>
+<h2 id="3-Git回退到某个版本"><a href="#3-Git回退到某个版本" class="headerlink" title="3 Git回退到某个版本"></a>3 Git回退到某个版本</h2><p>需要注意的是，该方法所涉及的回退是回退本地仓库的内容，也就是上图所示的Repository中的数据。</p>
+<pre class="line-numbers language-none"><code class="language-none">git reset --hard HEAD^ &#x2F;&#x2F;回退到上一个版本
+&#x2F;&#x2F;但如果想回退到指定的版本，则可以使用下面的命令进行配合
+git reflog &#x2F;&#x2F;显示提交的所有版本情况，获取对应的版本号，如果使用git log那么会以当前所处版本为终点进行显示。
+git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 
@@ -1017,7 +1054,7 @@ git push origin HEAD -u<span aria-hidden="true" class="line-numbers-rows"><span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.7k</span>&nbsp;字
+                class="white-color">2.8k</span>&nbsp;字
             
             
             
