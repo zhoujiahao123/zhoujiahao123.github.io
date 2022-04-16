@@ -17,6 +17,25 @@
     
     
     <entry>
+      <title>倒排索引</title>
+      <link href="/2021/11/29/dao-pai-suo-yin-1/"/>
+      <url>/2021/11/29/dao-pai-suo-yin-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-索引"><a href="#1-索引" class="headerlink" title="1 索引"></a>1 索引</h2><h3 id="1-1-什么是索引"><a href="#1-1-什么是索引" class="headerlink" title="1.1 什么是索引"></a>1.1 什么是索引</h3><p>索引是用于<strong>快速检索数据</strong>的一种数据结构。举个例子，新华字典的目录页就是典型的索引，可以通过目录查找对应汉字的详细数据，如果没有目录，那么每一个汉字都需要翻阅整个新华字典才能找到释义，太浪费时间了。</p><h3 id="1-2-倒排索引能做什么"><a href="#1-2-倒排索引能做什么" class="headerlink" title="1.2 倒排索引能做什么"></a>1.2 倒排索引能做什么</h3><p>数据库索引通过索引列查询详细的数据，以下表为例。</p><table><thead><tr><th>id</th><th align="left">content</th></tr></thead><tbody><tr><td>1</td><td align="left">我经常在美团上点外卖</td></tr><tr><td>2</td><td align="left">我偶尔在饿了么上点外卖</td></tr><tr><td>3</td><td align="left">外卖不如学校食堂好吃</td></tr><tr><td>4</td><td align="left">我很少点商业街的外卖</td></tr></tbody></table><p>数据库索引将id与title相关联，可以通过id搜索对应的title。但假如我需要查找<code>content</code>包含外卖的条目信息，那么在数据库索引中可以使用模糊查询<code>%外卖%</code>的方式，但我们知道这种查询方式会走全表扫描，效率低下。更进一步的，如果我想搜索<code>美团外卖</code>关键词呢。似乎btree索引无法实现这样的需求了。</p><p>因此，实际上倒排索引需要对文档内容进行分词。</p><table><thead><tr><th>content</th><th>分词结果</th></tr></thead><tbody><tr><td>我常点美团的外卖</td><td>我、常点、美团、的、外卖</td></tr><tr><td>我常点饿了么的外卖</td><td>我、常点、饿了么、的、外卖</td></tr><tr><td>外卖不如学校食堂好吃</td><td>外卖、不如、学校、食堂、好吃</td></tr><tr><td>我不点商业街的外卖</td><td>我、不点、商业街、的、外卖</td></tr></tbody></table><p>并且，每个分词都会跟对应的<code>id</code>关联起来。</p><table><thead><tr><th>分词</th><th>文档id</th></tr></thead><tbody><tr><td>我</td><td>[1、2、4]</td></tr><tr><td>常点</td><td>[1、2]</td></tr><tr><td>美团</td><td>[1]</td></tr><tr><td>饿了么</td><td>[2]</td></tr><tr><td>的</td><td>[1、2、4]</td></tr><tr><td>外卖</td><td>[1、2、3、4]</td></tr><tr><td>不如</td><td>[3]</td></tr><tr><td>学校</td><td>[3]</td></tr><tr><td>…</td><td>…</td></tr></tbody></table><p>那么现在，如果想要查询<code>外卖</code>这个关键词，那么会首先拿到文档id<code>1、2、3、4</code>，然后通过id去搜索到具体的content内容。</p><p>如果想要查询<code>外卖 美团</code>这个关键词，那么会拿到文档id<code>[1、2、3、4]</code>与文档id<code>[1]</code>，然后做一个合并操作只留下文档id<code>[1]</code>.再通过id搜索具体内容。</p><p>现在我们已经知道倒排索引的流程大致是什么样的了。但这里有几个问题仍然还没有明确：</p><ul><li>分词是如何做的？</li><li>文档id的合并操作如何实现？</li><li>使用什么样的数据结构实现的倒排索引？</li></ul><p>接下来的部分会对这几个问题进行阐述。</p><h2 id="2-lucene查询原理"><a href="#2-lucene查询原理" class="headerlink" title="2 lucene查询原理"></a>2 lucene查询原理</h2><h3 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h3><h3 id="2-2-查询过程"><a href="#2-2-查询过程" class="headerlink" title="2.2 查询过程"></a>2.2 查询过程</h3><h4 id="2-2-1-term-index"><a href="#2-2-1-term-index" class="headerlink" title="2.2.1 term index"></a>2.2.1 term index</h4><h4 id="2-2-2-term-dictionary"><a href="#2-2-2-term-dictionary" class="headerlink" title="2.2.2 term dictionary"></a>2.2.2 term dictionary</h4><h4 id="2-2-3-合并position"><a href="#2-2-3-合并position" class="headerlink" title="2.2.3 合并position"></a>2.2.3 合并position</h4><h5 id="2-2-3-1-基于跳跃表"><a href="#2-2-3-1-基于跳跃表" class="headerlink" title="2.2.3.1 基于跳跃表"></a>2.2.3.1 基于跳跃表</h5><h5 id="2-2-3-2-基于bitset"><a href="#2-2-3-2-基于bitset" class="headerlink" title="2.2.3.2 基于bitset"></a>2.2.3.2 基于bitset</h5>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git</title>
       <link href="/2021/11/15/git/"/>
       <url>/2021/11/15/git/</url>

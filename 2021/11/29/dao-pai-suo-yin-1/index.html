@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git, 半亩方塘">
+    <meta name="keywords" content="倒排索引, 半亩方塘">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git | 半亩方塘</title>
+    <title>倒排索引 | 半亩方塘</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git</h1>
+                    <h1 class="description center-align post-title">倒排索引</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,28 +447,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-15
+                    2021-11-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-16
+                    2022-04-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    754
+                    684
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -487,74 +491,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-常用的命令"><a href="#1-常用的命令" class="headerlink" title="1 常用的命令"></a>1 常用的命令</h2><pre class="line-numbers language-none"><code class="language-none">git init &#x2F;&#x2F;创建一个空的git
-git add .   &#x2F;&#x2F;添加所有的文件到git  
-git commit -m &quot;名称&quot;       &#x2F;&#x2F;提交当前的git
-git status   &#x2F;&#x2F;查看git的状态
-git checkout   &#x2F;&#x2F;查看有哪些文件被更改了，显示被更改的文件的路径
-git checkout    文件路径     &#x2F;&#x2F;丢弃该文件工作区的内容，注意是工作区。
-git diff    &#x2F;&#x2F;查看所有的文件的更改详细情况
-git diff     文件名称         &#x2F;&#x2F;查看当前文件的详细的更改情况
-git reset HEAD  文件路径      &#x2F;&#x2F;可以还原已经被add的更改的文件
-git log     &#x2F;&#x2F;查看commit的详细信息
-git branch     &#x2F;&#x2F;查看本地分支情况
-git branch -r   &#x2F;&#x2F;查看远程分支情况
-git branch develop      &#x2F;&#x2F;创建一个名为 develop      的分支
-git push origin develop:develop2&#x2F;&#x2F;将远程分支改名为develop2
-git checkout develop            &#x2F;&#x2F;切换到 develop      分支
-git checkout -b develop        &#x2F;&#x2F;将上面两个合二为一
-git push origin develop   &#x2F;&#x2F;将分支上传至远程仓库
-git merge a       &#x2F;&#x2F;在master中使用可以合并a分支，该方法比较粗鲁，他只是腾出一块空间让a中的代码全部放进去，这种做法你可以知道哪个代码来自哪里
-git rebase a      &#x2F;&#x2F;在master中使用可以合并a分支   该方法较为柔和，他将会按照写代码的时间来排代码，会让代码看起来更有逻辑性，但不容易分辨代码来自哪里
-git branch -d  a    &#x2F;&#x2F;删除a这个分支，但是当a 的代码没有合并到master的时候这个是无效的。需要使用下面那个强制删除
-git branch -D a   &#x2F;&#x2F;强制删除a分支
-git push origin :develop   &#x2F;&#x2F;删除远程分支
-git tag v1.0     &#x2F;&#x2F;在当前代码状态下新建一个名为v1.0的标签
-如何将本地仓库和github的仓库相互关联:    git remote add origin 地址.git       &#x2F;&#x2F;其中origin是仓库的名称，可以任意取   使用HTTPS协议上传
-git remote   &#x2F;&#x2F;获取当前项目有哪些远程的仓库
-git remote add origin git@github.com:youName&#x2F;youRepo.git    &#x2F;&#x2F;使用ssh协议上传
-git remote remove origin   &#x2F;&#x2F;删除远程仓库
-git checkout -b v1.0 origin&#x2F;master
-git push origin HEAD -u<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-git工作流程"><a href="#2-git工作流程" class="headerlink" title="2  git工作流程"></a>2  git工作流程</h2><p><img src="C:\Users\Jacob\Desktop\工作\typora图片\git流程.png"></p>
-<h2 id="3-Git回退到某个版本"><a href="#3-Git回退到某个版本" class="headerlink" title="3 Git回退到某个版本"></a>3 Git回退到某个版本</h2><p>需要注意的是，该方法所涉及的回退是回退本地仓库的内容，也就是上图所示的Repository中的数据。</p>
-<pre class="line-numbers language-none"><code class="language-none">git reset --hard HEAD^ &#x2F;&#x2F;回退到上一个版本
-&#x2F;&#x2F;但如果想回退到指定的版本，则可以使用下面的命令进行配合
-git reflog &#x2F;&#x2F;显示提交的所有版本情况，获取对应的版本号，如果使用git log那么会以当前所处版本为终点进行显示。
-git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <h2 id="1-索引"><a href="#1-索引" class="headerlink" title="1 索引"></a>1 索引</h2><h3 id="1-1-什么是索引"><a href="#1-1-什么是索引" class="headerlink" title="1.1 什么是索引"></a>1.1 什么是索引</h3><p>索引是用于<strong>快速检索数据</strong>的一种数据结构。举个例子，新华字典的目录页就是典型的索引，可以通过目录查找对应汉字的详细数据，如果没有目录，那么每一个汉字都需要翻阅整个新华字典才能找到释义，太浪费时间了。</p>
+<h3 id="1-2-倒排索引能做什么"><a href="#1-2-倒排索引能做什么" class="headerlink" title="1.2 倒排索引能做什么"></a>1.2 倒排索引能做什么</h3><p>数据库索引通过索引列查询详细的数据，以下表为例。</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th align="left">content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">我经常在美团上点外卖</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">我偶尔在饿了么上点外卖</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">外卖不如学校食堂好吃</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left">我很少点商业街的外卖</td>
+</tr>
+</tbody></table>
+<p>数据库索引将id与title相关联，可以通过id搜索对应的title。但假如我需要查找<code>content</code>包含外卖的条目信息，那么在数据库索引中可以使用模糊查询<code>%外卖%</code>的方式，但我们知道这种查询方式会走全表扫描，效率低下。更进一步的，如果我想搜索<code>美团外卖</code>关键词呢。似乎btree索引无法实现这样的需求了。</p>
+<p>因此，实际上倒排索引需要对文档内容进行分词。</p>
+<table>
+<thead>
+<tr>
+<th>content</th>
+<th>分词结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>我常点美团的外卖</td>
+<td>我、常点、美团、的、外卖</td>
+</tr>
+<tr>
+<td>我常点饿了么的外卖</td>
+<td>我、常点、饿了么、的、外卖</td>
+</tr>
+<tr>
+<td>外卖不如学校食堂好吃</td>
+<td>外卖、不如、学校、食堂、好吃</td>
+</tr>
+<tr>
+<td>我不点商业街的外卖</td>
+<td>我、不点、商业街、的、外卖</td>
+</tr>
+</tbody></table>
+<p>并且，每个分词都会跟对应的<code>id</code>关联起来。</p>
+<table>
+<thead>
+<tr>
+<th>分词</th>
+<th>文档id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>我</td>
+<td>[1、2、4]</td>
+</tr>
+<tr>
+<td>常点</td>
+<td>[1、2]</td>
+</tr>
+<tr>
+<td>美团</td>
+<td>[1]</td>
+</tr>
+<tr>
+<td>饿了么</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>的</td>
+<td>[1、2、4]</td>
+</tr>
+<tr>
+<td>外卖</td>
+<td>[1、2、3、4]</td>
+</tr>
+<tr>
+<td>不如</td>
+<td>[3]</td>
+</tr>
+<tr>
+<td>学校</td>
+<td>[3]</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<p>那么现在，如果想要查询<code>外卖</code>这个关键词，那么会首先拿到文档id<code>1、2、3、4</code>，然后通过id去搜索到具体的content内容。</p>
+<p>如果想要查询<code>外卖 美团</code>这个关键词，那么会拿到文档id<code>[1、2、3、4]</code>与文档id<code>[1]</code>，然后做一个合并操作只留下文档id<code>[1]</code>.再通过id搜索具体内容。</p>
+<p>现在我们已经知道倒排索引的流程大致是什么样的了。但这里有几个问题仍然还没有明确：</p>
+<ul>
+<li>分词是如何做的？</li>
+<li>文档id的合并操作如何实现？</li>
+<li>使用什么样的数据结构实现的倒排索引？</li>
+</ul>
+<p>接下来的部分会对这几个问题进行阐述。</p>
+<h2 id="2-lucene查询原理"><a href="#2-lucene查询原理" class="headerlink" title="2 lucene查询原理"></a>2 lucene查询原理</h2><h3 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h3><h3 id="2-2-查询过程"><a href="#2-2-查询过程" class="headerlink" title="2.2 查询过程"></a>2.2 查询过程</h3><h4 id="2-2-1-term-index"><a href="#2-2-1-term-index" class="headerlink" title="2.2.1 term index"></a>2.2.1 term index</h4><h4 id="2-2-2-term-dictionary"><a href="#2-2-2-term-dictionary" class="headerlink" title="2.2.2 term dictionary"></a>2.2.2 term dictionary</h4><h4 id="2-2-3-合并position"><a href="#2-2-3-合并position" class="headerlink" title="2.2.3 合并position"></a>2.2.3 合并position</h4><h5 id="2-2-3-1-基于跳跃表"><a href="#2-2-3-1-基于跳跃表" class="headerlink" title="2.2.3.1 基于跳跃表"></a>2.2.3.1 基于跳跃表</h5><h5 id="2-2-3-2-基于bitset"><a href="#2-2-3-2-基于bitset" class="headerlink" title="2.2.3.2 基于bitset"></a>2.2.3.2 基于bitset</h5>
                 
             </div>
             <hr/>
@@ -580,7 +623,7 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zhoujiahao123.github.io/2021/11/15/git/">https://zhoujiahao123.github.io/2021/11/15/git/</a>
+                    <a href="https://zhoujiahao123.github.io/2021/11/29/dao-pai-suo-yin-1/">https://zhoujiahao123.github.io/2021/11/29/dao-pai-suo-yin-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -617,7 +660,11 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -789,13 +836,13 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/29/dao-pai-suo-yin-1/">
+                <a href="/2022/04/16/elasticsearch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="倒排索引">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="elasticsearch">
                         
-                        <span class="card-title">倒排索引</span>
+                        <span class="card-title">elasticsearch</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,7 +853,7 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-16
                         </span>
                         <span class="publish-author">
                             
@@ -815,14 +862,6 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -834,24 +873,24 @@ git reset --hard 版本号  <span aria-hidden="true" class="line-numbers-rows"><
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/12/buglist/">
+                <a href="/2021/11/15/git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="“bugList”">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git">
                         
-                        <span class="card-title">“bugList”</span>
+                        <span class="card-title">git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录我在开发过程中遇到的问题
+                            git的一些常用命令查询，以及一些开发过程中遇到的git的用法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
                             </span>
                         <span class="publish-author">
                             
